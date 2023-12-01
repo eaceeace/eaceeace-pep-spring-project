@@ -40,7 +40,7 @@ public class MessageService {
         }else{return null; }}
     public Message createMessage(Message message){
         Optional<Account> create = accountRepository.findById(message.getPosted_by());
-        if (message.getMessage_text() !=null && create.isPresent()){
+        if (message.getMessage_text() !=null && create.isPresent()&& message.getMessage_text()!= ""){
             return messageRepository.save(message);
         } else{ return null;}}
         public Optional<Message> updateMessage(int message_id, Message message) {
